@@ -11,7 +11,8 @@
 @interface com_robertdiamondViewController : UIViewController
 
 @property (nonatomic, readonly) UIButton *pressMe;
+@property (nonatomic, readonly) UIButton *resetButton;
 @property (nonatomic, readonly) UILabel *displayCount;
 
-@property (nonatomic) NSInteger count;
+@property (nonatomic) NSTimeInterval count;
 @end

@@ -18,6 +18,9 @@
 		9C66E34D179C876500FD48B3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C66E34C179C876500FD48B3 /* Default-568h@2x.png */; };
 		9C66E350179C876500FD48B3 /* com_robertdiamondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C66E34F179C876500FD48B3 /* com_robertdiamondViewController.m */; };
 		9C66E35A179C8C1D00FD48B3 /* GRAFFITI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 9C66E359179C8C1900FD48B3 /* GRAFFITI.TTF */; };
+		9C66E35D179C944700FD48B3 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C66E35C179C944700FD48B3 /* SecondViewController.m */; };
+		9C66E360179C983400FD48B3 /* LaptimeDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C66E35F179C983400FD48B3 /* LaptimeDataSource.m */; };
+		9C66E363179C9AB400FD48B3 /* NSNumber+Laptime.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C66E362179C9AB400FD48B3 /* NSNumber+Laptime.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,12 @@
 		9C66E34E179C876500FD48B3 /* com_robertdiamondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = com_robertdiamondViewController.h; sourceTree = "<group>"; };
 		9C66E34F179C876500FD48B3 /* com_robertdiamondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = com_robertdiamondViewController.m; sourceTree = "<group>"; };
 		9C66E359179C8C1900FD48B3 /* GRAFFITI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = GRAFFITI.TTF; sourceTree = "<group>"; };
+		9C66E35B179C944700FD48B3 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		9C66E35C179C944700FD48B3 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		9C66E35E179C983400FD48B3 /* LaptimeDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaptimeDataSource.h; sourceTree = "<group>"; };
+		9C66E35F179C983400FD48B3 /* LaptimeDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaptimeDataSource.m; sourceTree = "<group>"; };
+		9C66E361179C9AB400FD48B3 /* NSNumber+Laptime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Laptime.h"; sourceTree = "<group>"; };
+		9C66E362179C9AB400FD48B3 /* NSNumber+Laptime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Laptime.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +97,12 @@
 				9C66E34E179C876500FD48B3 /* com_robertdiamondViewController.h */,
 				9C66E34F179C876500FD48B3 /* com_robertdiamondViewController.m */,
 				9C66E33D179C876400FD48B3 /* Supporting Files */,
+				9C66E35B179C944700FD48B3 /* SecondViewController.h */,
+				9C66E35C179C944700FD48B3 /* SecondViewController.m */,
+				9C66E35E179C983400FD48B3 /* LaptimeDataSource.h */,
+				9C66E35F179C983400FD48B3 /* LaptimeDataSource.m */,
+				9C66E361179C9AB400FD48B3 /* NSNumber+Laptime.h */,
+				9C66E362179C9AB400FD48B3 /* NSNumber+Laptime.m */,
 			);
 			path = example3;
 			sourceTree = "<group>";
@@ -177,6 +192,9 @@
 				9C66E343179C876400FD48B3 /* main.m in Sources */,
 				9C66E347179C876500FD48B3 /* com_robertdiamondAppDelegate.m in Sources */,
 				9C66E350179C876500FD48B3 /* com_robertdiamondViewController.m in Sources */,
+				9C66E35D179C944700FD48B3 /* SecondViewController.m in Sources */,
+				9C66E360179C983400FD48B3 /* LaptimeDataSource.m in Sources */,
+				9C66E363179C9AB400FD48B3 /* NSNumber+Laptime.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
