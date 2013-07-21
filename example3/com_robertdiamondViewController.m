@@ -22,6 +22,7 @@
 @property (nonatomic) dispatch_queue_t timerq;
 @property (nonatomic) dispatch_source_t timer;
 @property (nonatomic) LaptimeDataSource *lapTimes;
+@property (nonatomic) UIBarButtonItem *lapButton;
 
 @end
 
@@ -73,8 +74,8 @@
     [self.view addSubview:_resetButton];
     [self.view addSubview:_displayCount];
     
-    UIBarButtonItem *lapButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Lap", @"") style:UIBarButtonItemStyleBordered target:self action:@selector(_lapButtonPressed)];
-    self.navigationItem.rightBarButtonItem = lapButton;
+    _lapButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Lap", @"") style:UIBarButtonItemStyleBordered target:self action:@selector(_lapButtonPressed)];
+    self.navigationItem.rightBarButtonItem = _lapButton;
     
     self.navigationItem.title = @"Stopwatch";
 }
@@ -112,7 +113,9 @@
 
 - (void)_lapButtonPressed
 {
-    [_lapTimes addLaptime:_count];
+    if (_timer != nil) {
+        [_lapTimes addLaptime:_count];
+    }
     [self.navigationController pushViewController:[[SecondViewController alloc] initWithLaptimes:_lapTimes] animated:YES];
 }
 

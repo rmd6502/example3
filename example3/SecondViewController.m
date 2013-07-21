@@ -55,6 +55,7 @@
     _tableView.frame = CGRectMake(0, tableY, self.view.frame.size.width, self.view.bounds.size.height - tableY);
     _tableView.delegate = self;
     _tableView.dataSource = _lapTimes;
+    _tableView.backgroundColor = [UIColor blackColor];
     
     [self.view addSubview:_clearTable];
     [self.view addSubview:_tableView];

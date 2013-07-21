@@ -39,6 +39,12 @@
     }
     cell.textLabel.text = [_lapTimes[indexPath.row] formatLaptime];
     
+    if (indexPath.row == _lapTimes.count - 1) {
+        cell.textLabel.textColor = [UIColor whiteColor];
+    } else {
+        cell.textLabel.textColor = [UIColor lightGrayColor];
+    }
+    
     return cell;
 }
 
