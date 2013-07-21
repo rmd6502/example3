@@ -96,13 +96,13 @@
 				9C66E346179C876500FD48B3 /* com_robertdiamondAppDelegate.m */,
 				9C66E34E179C876500FD48B3 /* com_robertdiamondViewController.h */,
 				9C66E34F179C876500FD48B3 /* com_robertdiamondViewController.m */,
-				9C66E33D179C876400FD48B3 /* Supporting Files */,
-				9C66E35B179C944700FD48B3 /* SecondViewController.h */,
-				9C66E35C179C944700FD48B3 /* SecondViewController.m */,
 				9C66E35E179C983400FD48B3 /* LaptimeDataSource.h */,
 				9C66E35F179C983400FD48B3 /* LaptimeDataSource.m */,
 				9C66E361179C9AB400FD48B3 /* NSNumber+Laptime.h */,
 				9C66E362179C9AB400FD48B3 /* NSNumber+Laptime.m */,
+				9C66E35B179C944700FD48B3 /* SecondViewController.h */,
+				9C66E35C179C944700FD48B3 /* SecondViewController.m */,
+				9C66E33D179C876400FD48B3 /* Supporting Files */,
 			);
 			path = example3;
 			sourceTree = "<group>";
