@@ -16,6 +16,7 @@
 #define BUTTON_TO_BUTTON_SPACING 40
 #define LABEL_LEFT_OFFSET 30
 #define NS_PER_SECOND (1E9)
+#define COUNT_RESOLUTION (.001f)
 
 @interface com_robertdiamondViewController ()
 
@@ -94,7 +95,7 @@
         [_pressMe setTitle:NSLocalizedString(@"Stop Timer", @"") forState:UIControlStateNormal];
         _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, _timerq);
         dispatch_source_set_event_handler(_timer, ^{
-            _count += .01;
+            _count += COUNT_RESOLUTION;
             NSString *formatted = [@(_count) formatLaptime];
             dispatch_async(dispatch_get_main_queue(), ^{
                 _displayCount.text = formatted;
@@ -106,7 +107,7 @@
             _timer = nil;
         });
         
-        dispatch_source_set_timer(_timer, DISPATCH_TIME_NOW, .01 * NS_PER_SECOND, .1 * NS_PER_SECOND);
+        dispatch_source_set_timer(_timer, DISPATCH_TIME_NOW, COUNT_RESOLUTION * NS_PER_SECOND, .1 * NS_PER_SECOND);
         dispatch_resume(_timer);
     }
 }
