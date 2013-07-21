@@ -17,7 +17,7 @@
 		9C66E34B179C876500FD48B3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C66E34A179C876500FD48B3 /* Default@2x.png */; };
 		9C66E34D179C876500FD48B3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C66E34C179C876500FD48B3 /* Default-568h@2x.png */; };
 		9C66E350179C876500FD48B3 /* com_robertdiamondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C66E34F179C876500FD48B3 /* com_robertdiamondViewController.m */; };
-		9C66E353179C876500FD48B3 /* com_robertdiamondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C66E351179C876500FD48B3 /* com_robertdiamondViewController.xib */; };
+		9C66E35A179C8C1D00FD48B3 /* GRAFFITI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 9C66E359179C8C1900FD48B3 /* GRAFFITI.TTF */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +36,7 @@
 		9C66E34C179C876500FD48B3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9C66E34E179C876500FD48B3 /* com_robertdiamondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = com_robertdiamondViewController.h; sourceTree = "<group>"; };
 		9C66E34F179C876500FD48B3 /* com_robertdiamondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = com_robertdiamondViewController.m; sourceTree = "<group>"; };
-		9C66E352179C876500FD48B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/com_robertdiamondViewController.xib; sourceTree = "<group>"; };
+		9C66E359179C8C1900FD48B3 /* GRAFFITI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = GRAFFITI.TTF; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +87,6 @@
 				9C66E346179C876500FD48B3 /* com_robertdiamondAppDelegate.m */,
 				9C66E34E179C876500FD48B3 /* com_robertdiamondViewController.h */,
 				9C66E34F179C876500FD48B3 /* com_robertdiamondViewController.m */,
-				9C66E351179C876500FD48B3 /* com_robertdiamondViewController.xib */,
 				9C66E33D179C876400FD48B3 /* Supporting Files */,
 			);
 			path = example3;
@@ -96,6 +95,7 @@
 		9C66E33D179C876400FD48B3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9C66E359179C8C1900FD48B3 /* GRAFFITI.TTF */,
 				9C66E33E179C876400FD48B3 /* example3-Info.plist */,
 				9C66E33F179C876400FD48B3 /* InfoPlist.strings */,
 				9C66E342179C876400FD48B3 /* main.m */,
@@ -163,7 +163,7 @@
 				9C66E349179C876500FD48B3 /* Default.png in Resources */,
 				9C66E34B179C876500FD48B3 /* Default@2x.png in Resources */,
 				9C66E34D179C876500FD48B3 /* Default-568h@2x.png in Resources */,
-				9C66E353179C876500FD48B3 /* com_robertdiamondViewController.xib in Resources */,
+				9C66E35A179C8C1D00FD48B3 /* GRAFFITI.TTF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,14 +189,6 @@
 				9C66E340179C876400FD48B3 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		9C66E351179C876500FD48B3 /* com_robertdiamondViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9C66E352179C876500FD48B3 /* en */,
-			);
-			name = com_robertdiamondViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

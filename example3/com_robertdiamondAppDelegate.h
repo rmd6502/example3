@@ -14,6 +14,6 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) com_robertdiamondViewController *viewController;
+@property (strong, nonatomic) UINavigationController *viewController;
 
 @end
