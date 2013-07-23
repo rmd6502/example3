@@ -21,6 +21,7 @@
 		9C66E35D179C944700FD48B3 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C66E35C179C944700FD48B3 /* SecondViewController.m */; };
 		9C66E360179C983400FD48B3 /* LaptimeDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C66E35F179C983400FD48B3 /* LaptimeDataSource.m */; };
 		9C66E363179C9AB400FD48B3 /* NSNumber+Laptime.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C66E362179C9AB400FD48B3 /* NSNumber+Laptime.m */; };
+		9CD082A3179EC7DE00987EC1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD082A2179EC7DE00987EC1 /* QuartzCore.framework */; };
 		D643F60B179CB192007ED01C /* AndroidClock_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D643F608179CB192007ED01C /* AndroidClock_Solid.ttf */; };
 		D643F60C179CB192007ED01C /* stopwatch57.png in Resources */ = {isa = PBXBuildFile; fileRef = D643F609179CB192007ED01C /* stopwatch57.png */; };
 		D643F60D179CB192007ED01C /* stopwatch114.png in Resources */ = {isa = PBXBuildFile; fileRef = D643F60A179CB192007ED01C /* stopwatch114.png */; };
@@ -50,6 +51,7 @@
 		9C66E35F179C983400FD48B3 /* LaptimeDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaptimeDataSource.m; sourceTree = "<group>"; };
 		9C66E361179C9AB400FD48B3 /* NSNumber+Laptime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Laptime.h"; sourceTree = "<group>"; };
 		9C66E362179C9AB400FD48B3 /* NSNumber+Laptime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Laptime.m"; sourceTree = "<group>"; };
+		9CD082A2179EC7DE00987EC1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D643F608179CB192007ED01C /* AndroidClock_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AndroidClock_Solid.ttf; sourceTree = "<group>"; };
 		D643F609179CB192007ED01C /* stopwatch57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stopwatch57.png; sourceTree = "<group>"; };
 		D643F60A179CB192007ED01C /* stopwatch114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stopwatch114.png; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CD082A3179EC7DE00987EC1 /* QuartzCore.framework in Frameworks */,
 				9C66E337179C876400FD48B3 /* UIKit.framework in Frameworks */,
 				9C66E339179C876400FD48B3 /* Foundation.framework in Frameworks */,
 				9C66E33B179C876400FD48B3 /* CoreGraphics.framework in Frameworks */,
@@ -91,6 +94,7 @@
 		9C66E335179C876400FD48B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9CD082A2179EC7DE00987EC1 /* QuartzCore.framework */,
 				9C66E336179C876400FD48B3 /* UIKit.framework */,
 				9C66E338179C876400FD48B3 /* Foundation.framework */,
 				9C66E33A179C876400FD48B3 /* CoreGraphics.framework */,

@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Robert Diamond. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "ABWatchView.h"
 
 @interface ABWatchView ()
@@ -52,7 +53,11 @@
 }
 - (void)setCount:(NSTimeInterval)count
 {
-    
+    NSUInteger hours = count/3600;
+    count -= hours * 3600;
+    NSUInteger mins = count/60;
+    count -= mins * 60;
+    _handView.transform = CGAffineTransformMakeRotation(count * M_PI/30.0);
 }
 
 - (void)layoutSubviews
@@ -62,7 +67,9 @@
         return;
     }
     _backgroundView.frame = self.bounds;
-    _handView.frame = CGRectMake(0, 0, _handView.image.size.width, _handView.image.size.height);
+    //_handView.frame = CGRectMake(_backgroundView.center.x - 4.0, 38.0, _handView.image.size.width, _handView.image.size.height);
+    _handView.frame = self.bounds;
+    _handView.contentMode = UIViewContentModeCenter;
 }
 
 - (void)setInnerCircleColor:(UIColor *)innerCircleColor
@@ -111,7 +118,7 @@
         return nil;
     }
     
-    UIGraphicsBeginImageContext(self.bounds.size);
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0.0);
 
     // add a thick circle
     CGRect outer = self.bounds;
@@ -174,22 +181,20 @@
         return nil;
     }
     CGRect inner = self.bounds;
-    CGFloat xOffset = inner.size.width / 2.0f;
-    CGFloat yOffset = inner.size.height / 2.0f;
-    CGFloat radius = floor((MIN(xOffset,yOffset) - 24.0));
-    inner.size.height = radius + 10.0;
-    inner.size.width = radius + 10.0;
-    xOffset = inner.size.width / 2.0f;
-    yOffset = inner.size.height / 2.0f;
+    inner.size.width /= 2.0f;
+    inner.size.height /= 2.0f;
+    CGFloat radius = floor(MIN(inner.size.width, inner.size.height)) - 14.0;
+    inner.size.width = 7.0;
+    inner.size.height = radius;
 
-    UIGraphicsBeginImageContext(inner.size);
+    UIGraphicsBeginImageContextWithOptions(inner.size, NO, 0.0);
 
     UIBezierPath *path = [UIBezierPath bezierPath];
 
     // start left of center
-    [path moveToPoint:CGPointMake(xOffset-3.0f, yOffset + 10.0)];
-    [path addLineToPoint:CGPointMake(xOffset,yOffset - radius - 10.0)];
-    [path addLineToPoint:CGPointMake(xOffset+3.0f, yOffset+10.0)];
+    [path moveToPoint:CGPointMake(0, radius)];
+    [path addLineToPoint:CGPointMake(4.0,0.0)];
+    [path addLineToPoint:CGPointMake(7.0, radius)];
     [path closePath];
     path.lineWidth = 1.0f;
     path.lineCapStyle = kCGLineCapRound;

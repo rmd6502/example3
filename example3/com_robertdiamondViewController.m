@@ -110,6 +110,7 @@
                 NSString *formatted = [@(strongSelf.count) formatLaptimeWithDigits:2];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     strongSelf.displayCount.text = formatted;
+                    _watchView.count = strongSelf.count;
                 });
             }
         });
