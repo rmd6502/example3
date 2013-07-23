@@ -14,5 +14,6 @@
 @property (nonatomic, readonly) UIButton *resetButton;
 @property (nonatomic, readonly) UILabel *displayCount;
 
-@property (nonatomic) NSTimeInterval count;
+@property (nonatomic) NSDate *startTime;
+@property (nonatomic,readonly) NSTimeInterval count;
 @end

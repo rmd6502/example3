@@ -10,6 +10,6 @@
 
 @interface NSNumber (Laptime)
 
-- (NSString *) formatLaptime;
+- (NSString *) formatLaptimeWithDigits:(NSUInteger)digits;
 
 @end

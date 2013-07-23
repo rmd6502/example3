@@ -10,8 +10,12 @@
 #import "NSNumber+Laptime.h"
 
 #define LAPTIME_CELL_IDENTIFIER @"lapTimeCell"
+#define DISPLAY_FONT @"HelveticaNeue-Light"
+#define DISPLAY_SIZE 18.0f
 
-@interface LaptimeDataSource ()
+@interface LaptimeDataSource () {
+    CGFloat _rowHeight;
+}
 @property (nonatomic) NSMutableArray *lapTimes;
 @end
 
@@ -31,13 +35,22 @@
     return _lapTimes.count;
 }
 
+- (CGFloat)rowHeight
+{
+    if (_rowHeight == 0) {
+        _rowHeight = [UIFont fontWithName:DISPLAY_FONT size:DISPLAY_SIZE].lineHeight;
+    }
+    return _rowHeight;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LAPTIME_CELL_IDENTIFIER];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:LAPTIME_CELL_IDENTIFIER];
     }
-    cell.textLabel.text = [_lapTimes[indexPath.row] formatLaptime];
+    cell.textLabel.font = [UIFont fontWithName:DISPLAY_FONT size:DISPLAY_SIZE];
+    cell.textLabel.text = [_lapTimes[indexPath.row] formatLaptimeWithDigits:3];
     
     if (indexPath.row == _lapTimes.count - 1) {
         cell.textLabel.textColor = [UIColor whiteColor];

@@ -10,18 +10,16 @@
 
 @implementation NSNumber (Laptime)
 
-- (NSString *) formatLaptime
+- (NSString *) formatLaptimeWithDigits:(NSUInteger)digits
 {
     NSTimeInterval tc = self.doubleValue;
-    NSUInteger h,m,s,ms;
+    NSUInteger h,m;
     h = floor(tc / 3600);
     tc -= h * 3600;
     m = floor(tc / 60);
     tc -= m * 60;
-    s = floor(tc);
-    ms = (tc - floor(tc)) * 1000;
-    return [NSString stringWithFormat:@"%02d:%02d:%02d.%03d",
-                              h,m,s,ms];
+    return [NSString stringWithFormat:@"%02d:%02d:%02.*f",
+                              h,m,digits,tc];
 }
 
 @end

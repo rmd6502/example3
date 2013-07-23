@@ -11,6 +11,7 @@
 @interface LaptimeDataSource : NSObject<UITableViewDataSource>
 
 @property (nonatomic,readonly) NSMutableArray *lapTimes;
+@property (nonatomic,readonly) CGFloat rowHeight;
 
 - (void)addLaptime:(NSTimeInterval)lapTime;
 - (void)clearLaptimes;
