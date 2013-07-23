@@ -103,19 +103,26 @@
         [_pressMe setTitle:NSLocalizedString(@"Stop Timer", @"") forState:UIControlStateNormal];
         _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, _timerq);
         
+        __weak com_robertdiamondViewController *weakSelf = self;
         dispatch_source_set_event_handler(_timer, ^{
-            NSString *formatted = [@(self.count) formatLaptimeWithDigits:2];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                _displayCount.text = formatted;
-            });
+            com_robertdiamondViewController *strongSelf = weakSelf;
+            if (strongSelf) {
+                NSString *formatted = [@(strongSelf.count) formatLaptimeWithDigits:2];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    strongSelf.displayCount.text = formatted;
+                });
+            }
         });
         
         dispatch_source_set_cancel_handler(_timer, ^{
-            _timer = nil;
-            _startTime = nil;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [_pressMe setTitle:NSLocalizedString(@"Press Me!", @"") forState:UIControlStateNormal];
-            });
+            com_robertdiamondViewController *strongSelf = weakSelf;
+            if (strongSelf) {
+                strongSelf.timer = nil;
+                strongSelf.startTime = nil;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [strongSelf.pressMe setTitle:NSLocalizedString(@"Press Me!", @"") forState:UIControlStateNormal];
+                });
+            }
         });
 
         dispatch_source_set_timer(_timer, DISPATCH_TIME_NOW, COUNT_RESOLUTION * NS_PER_SECOND, .1 * NS_PER_SECOND);
@@ -134,12 +141,16 @@
 
 - (void)_reset
 {
+    __weak com_robertdiamondViewController *weakSelf = self;
     dispatch_async(_timerq, ^{
-        _startTime = [NSDate date];
-        NSString *formatted = [@(self.count) formatLaptimeWithDigits:2];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            _displayCount.text = formatted;
-        });
+        com_robertdiamondViewController *strongSelf = weakSelf;
+        if (strongSelf) {
+            strongSelf.startTime = [NSDate date];
+            NSString *formatted = [@(strongSelf.count) formatLaptimeWithDigits:2];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                strongSelf.displayCount.text = formatted;
+            });
+        }
     });
 }
 

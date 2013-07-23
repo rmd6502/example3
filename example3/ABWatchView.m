@@ -27,7 +27,7 @@
         _tickColor = [UIColor whiteColor];
         self.backgroundColor = [UIColor blackColor];
         _handFillColor = [UIColor darkGrayColor];
-        _handStrokeColor = [UIColor grayColor];
+        _handStrokeColor = [UIColor whiteColor];
         
         _backgroundView = [[UIImageView alloc] initWithImage:[self _backgroundImage]];
         _backgroundView.frame = self.bounds;
@@ -176,7 +176,7 @@
     CGRect inner = self.bounds;
     CGFloat xOffset = inner.size.width / 2.0f;
     CGFloat yOffset = inner.size.height / 2.0f;
-    CGFloat radius = floor((MIN(xOffset,yOffset) - 24.0) * .8);
+    CGFloat radius = floor((MIN(xOffset,yOffset) - 24.0));
     inner.size.height = radius + 10.0;
     inner.size.width = radius + 10.0;
     xOffset = inner.size.width / 2.0f;
@@ -187,10 +187,13 @@
     UIBezierPath *path = [UIBezierPath bezierPath];
 
     // start left of center
-    [path moveToPoint:CGPointMake(xOffset, yOffset + 5.0)];
-    [path addLineToPoint:CGPointMake(xOffset,yOffset - radius - 5.0)];
-    path.lineWidth = 3.0f;
+    [path moveToPoint:CGPointMake(xOffset-3.0f, yOffset + 10.0)];
+    [path addLineToPoint:CGPointMake(xOffset,yOffset - radius - 10.0)];
+    [path addLineToPoint:CGPointMake(xOffset+3.0f, yOffset+10.0)];
+    [path closePath];
+    path.lineWidth = 1.0f;
     path.lineCapStyle = kCGLineCapRound;
+    path.lineJoinStyle = kCGLineJoinRound;
     [_handStrokeColor setStroke];
     [_handFillColor setFill];
     [path fill];
