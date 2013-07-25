@@ -49,6 +49,7 @@
     [super setFrame:frame];
     _backgroundView.image = [self _backgroundImage];
     _handView.image = [self _handImage];
+    _handView.layer.contentsGravity = kCAGravityTop;
     [self setNeedsLayout];
 }
 - (void)setCount:(NSTimeInterval)count
@@ -67,9 +68,9 @@
         return;
     }
     _backgroundView.frame = self.bounds;
-    //_handView.frame = CGRectMake(_backgroundView.center.x - 4.0, 38.0, _handView.image.size.width, _handView.image.size.height);
-    _handView.frame = self.bounds;
-    _handView.contentMode = UIViewContentModeCenter;
+    _handView.frame = CGRectMake(_backgroundView.center.x - 4.0, 38.0, _handView.image.size.width, _handView.image.size.height);
+    //_handView.layer.anchorPoint = CGPointMake(.5f, 0.9);
+    _handView.layer.position = CGPointMake(self.bounds.size.width/2.0, self.bounds.size.height/2.0);
 }
 
 - (void)setInnerCircleColor:(UIColor *)innerCircleColor
@@ -203,6 +204,11 @@
     [_handFillColor setFill];
     [path fill];
     [path stroke];
+    
+    path = [UIBezierPath bezierPath];
+    [[UIColor yellowColor] setFill];
+    [path addArcWithCenter:CGPointMake(inner.size.width/2, inner.size.height*.5) radius:2.0 startAngle:0 endAngle:M_PI * 2.0 clockwise:YES];
+    [path fill];
 
     UIImage *ret = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
