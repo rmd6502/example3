@@ -123,6 +123,7 @@
                 strongSelf->_lastCount = strongSelf.count;
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [strongSelf.pressMe setTitle:NSLocalizedString(@"Press Me!", @"") forState:UIControlStateNormal];
+                    [self _layout];
                 });
             }
         });
@@ -130,6 +131,7 @@
         dispatch_source_set_timer(_timer, DISPATCH_TIME_NOW, COUNT_RESOLUTION * NS_PER_SECOND, .1 * NS_PER_SECOND);
         _startTime = [[NSDate date] dateByAddingTimeInterval:-_lastCount];
         dispatch_resume(_timer);
+        [self _layout];
     }
 }
 
@@ -169,11 +171,13 @@
 
 - (void)_layout
 {
-    CGFloat totalButtonWidth = _pressMe.bounds.size.width + _resetButton.bounds.size.width + BUTTON_TO_BUTTON_SPACING;
+    [_pressMe sizeToFit];
+    CGSize pressMeSize = [[_pressMe titleForState:UIControlStateNormal] sizeWithFont:_pressMe.titleLabel.font forWidth:self.view.bounds.size.width lineBreakMode:NSLineBreakByClipping];
+    CGFloat totalButtonWidth = pressMeSize.width + _resetButton.bounds.size.width + BUTTON_TO_BUTTON_SPACING;
 
-    _pressMe.frame = CGRectMake((self.view.bounds.size.width - totalButtonWidth)/2.0, BUTTON_TOP_OFFSET, _pressMe.bounds.size.width, _pressMe.bounds.size.height);
+    _pressMe.frame = CGRectMake((self.view.bounds.size.width - totalButtonWidth)/2.0, BUTTON_TOP_OFFSET + self.navigationController.navigationBar.bounds.size.height, pressMeSize.width, _pressMe.bounds.size.height);
 
-    _resetButton.frame = CGRectMake(_pressMe.frame.origin.x + _pressMe.frame.size.width + BUTTON_TO_BUTTON_SPACING, BUTTON_TOP_OFFSET, _resetButton.bounds.size.width, _resetButton.bounds.size.height);
+    _resetButton.frame = CGRectMake(_pressMe.frame.origin.x + _pressMe.frame.size.width + BUTTON_TO_BUTTON_SPACING, BUTTON_TOP_OFFSET + self.navigationController.navigationBar.bounds.size.height, _resetButton.bounds.size.width, _resetButton.bounds.size.height);
 
     _displayCount.frame = CGRectMake(LABEL_LEFT_OFFSET, _pressMe.frame.origin.y + _pressMe.frame.size.height + BUTTON_TO_LABEL_OFFSET, self.view.bounds.size.width - LABEL_LEFT_OFFSET * 2.0, _displayCount.bounds.size.height);
 
