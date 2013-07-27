@@ -113,7 +113,8 @@
 - (void)_layout
 {
     [_clearTable sizeToFit];
-    _clearTable.frame = CGRectMake((self.view.bounds.size.width - _clearTable.bounds.size.width)/2, BUTTON_TOP_OFFSET, _clearTable.bounds.size.width, _clearTable.bounds.size.height);
+    CGFloat buttonTopOffset = BUTTON_TOP_OFFSET + self.navigationController.navigationBar.bounds.size.height + [UIApplication sharedApplication].statusBarFrame.size.height;
+    _clearTable.frame = CGRectMake((self.view.bounds.size.width - _clearTable.bounds.size.width)/2, buttonTopOffset, _clearTable.bounds.size.width, _clearTable.bounds.size.height);
     CGFloat tableY = _clearTable.frame.size.height + _clearTable.frame.origin.y + BUTTON_TO_LABEL_OFFSET;
     _tableView.frame = CGRectMake(0, tableY, self.view.frame.size.width, self.view.bounds.size.height - tableY - self.view.frame.origin.y);
     if (_lapTimes.lapTimes.count) {

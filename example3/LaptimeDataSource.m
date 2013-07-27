@@ -48,8 +48,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LAPTIME_CELL_IDENTIFIER];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:LAPTIME_CELL_IDENTIFIER];
+        cell.textLabel.font = [UIFont fontWithName:DISPLAY_FONT size:DISPLAY_SIZE];
+        cell.backgroundColor = [UIColor clearColor];
     }
-    cell.textLabel.font = [UIFont fontWithName:DISPLAY_FONT size:DISPLAY_SIZE];
     cell.textLabel.text = [_lapTimes[indexPath.row] formatLaptimeWithDigits:3];
     
     if (indexPath.row == _lapTimes.count - 1) {
