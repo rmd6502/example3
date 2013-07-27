@@ -14,7 +14,7 @@
 
 #define BUTTON_TOP_OFFSET 20
 #define BUTTON_TO_LABEL_OFFSET 20
-#define BUTTON_TO_CLOCK_OFFSET 40
+#define BUTTON_TO_CLOCK_OFFSET 5
 #define BUTTON_TO_BUTTON_SPACING 60
 #define LABEL_LEFT_OFFSET 30
 #define CLOCK_LEFT_OFFSET 10
@@ -28,6 +28,7 @@
 @property (nonatomic) LaptimeDataSource *lapTimes;
 @property (nonatomic) UIBarButtonItem *lapButton;
 @property (nonatomic) ABWatchView *watchView;
+@property (nonatomic) NSTimeInterval lastCount;
 
 @end
 
@@ -119,7 +120,7 @@
             com_robertdiamondViewController *strongSelf = weakSelf;
             if (strongSelf) {
                 strongSelf.timer = nil;
-                strongSelf.startTime = nil;
+                strongSelf->_lastCount = strongSelf.count;
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [strongSelf.pressMe setTitle:NSLocalizedString(@"Press Me!", @"") forState:UIControlStateNormal];
                 });
@@ -127,7 +128,7 @@
         });
 
         dispatch_source_set_timer(_timer, DISPATCH_TIME_NOW, COUNT_RESOLUTION * NS_PER_SECOND, .1 * NS_PER_SECOND);
-        _startTime = [NSDate date];
+        _startTime = [[NSDate date] dateByAddingTimeInterval:-_lastCount];
         dispatch_resume(_timer);
     }
 }
@@ -147,9 +148,11 @@
         com_robertdiamondViewController *strongSelf = weakSelf;
         if (strongSelf) {
             strongSelf.startTime = [NSDate date];
+            strongSelf->_lastCount = 0;
             NSString *formatted = [@(strongSelf.count) formatLaptimeWithDigits:2];
             dispatch_async(dispatch_get_main_queue(), ^{
                 strongSelf.displayCount.text = formatted;
+                strongSelf->_watchView.count = 0;
             });
         }
     });
@@ -175,7 +178,8 @@
     _displayCount.frame = CGRectMake(LABEL_LEFT_OFFSET, _pressMe.frame.origin.y + _pressMe.frame.size.height + BUTTON_TO_LABEL_OFFSET, self.view.bounds.size.width - LABEL_LEFT_OFFSET * 2.0, _displayCount.bounds.size.height);
 
     CGFloat displayCountBottom = _displayCount.frame.origin.y + _displayCount.frame.size.height + BUTTON_TO_CLOCK_OFFSET;
-    _watchView.frame = CGRectMake(CLOCK_LEFT_OFFSET, displayCountBottom, self.view.bounds.size.width - CLOCK_LEFT_OFFSET * 2.0, self.view.bounds.size.height - displayCountBottom - BUTTON_TO_CLOCK_OFFSET);
+    CGFloat watchRadius = MIN(self.view.bounds.size.width - CLOCK_LEFT_OFFSET * 2.0, self.view.bounds.size.height - displayCountBottom - BUTTON_TO_CLOCK_OFFSET);
+    _watchView.frame = CGRectMake(CLOCK_LEFT_OFFSET, displayCountBottom, watchRadius, watchRadius);
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation

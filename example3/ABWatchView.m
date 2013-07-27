@@ -9,11 +9,14 @@
 #import <QuartzCore/QuartzCore.h>
 #import "ABWatchView.h"
 
-@interface ABWatchView ()
+@interface ABWatchView () {
+    double _subCount;
+}
 
 @property (nonatomic) UILabel *timeLabel;
 @property (nonatomic) UIImageView *backgroundView;
-@property (nonatomic) UIImageView *handView;
+@property (nonatomic) UIView *handView;
+@property (nonatomic) UIImageView *handImageView;
 
 @end
 
@@ -33,8 +36,12 @@
         _backgroundView = [[UIImageView alloc] initWithImage:[self _backgroundImage]];
         _backgroundView.frame = self.bounds;
         
-        _handView = [[UIImageView alloc] initWithImage:[self _handImage]];
+        _handView = [[UIView alloc] initWithFrame:self.bounds];
+        _handView.opaque = NO;
+        _handView.backgroundColor = [UIColor clearColor];
+        _handImageView = [[UIImageView alloc] initWithImage:[self _handImage]];
         _handView.frame = self.bounds;
+        [_handView addSubview:_handImageView];
         _timeLabel = [UILabel new];
         _timeLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:18.0];
         [self addSubview:_backgroundView];
@@ -48,17 +55,21 @@
 {
     [super setFrame:frame];
     _backgroundView.image = [self _backgroundImage];
-    _handView.image = [self _handImage];
+    _handImageView.image = [self _handImage];
     _handView.layer.contentsGravity = kCAGravityTop;
     [self setNeedsLayout];
 }
 - (void)setCount:(NSTimeInterval)count
 {
-    NSUInteger hours = count/3600;
-    count -= hours * 3600;
-    NSUInteger mins = count/60;
-    count -= mins * 60;
-    _handView.transform = CGAffineTransformMakeRotation(count * M_PI/30.0);
+    if (_count != count) {
+        _count = count;
+        NSUInteger hours = count/3600;
+        count -= hours * 3600;
+        NSUInteger mins = count/60;
+        count -= mins * 60;
+        _subCount = count;
+        _handView.layer.affineTransform = CGAffineTransformMakeRotation(count * M_PI/30.0);
+    }
 }
 
 - (void)layoutSubviews
@@ -68,9 +79,11 @@
         return;
     }
     _backgroundView.frame = self.bounds;
-    _handView.frame = CGRectMake(_backgroundView.center.x - 4.0, 38.0, _handView.image.size.width, _handView.image.size.height);
-    //_handView.layer.anchorPoint = CGPointMake(.5f, 0.9);
-    _handView.layer.position = CGPointMake(self.bounds.size.width/2.0, self.bounds.size.height/2.0);
+    if (_count == 0) {
+        _handView.frame = self.bounds;
+        _handImageView.frame = CGRectMake((self.bounds.size.width - _handImageView.image.size.width)/2-.5, 35, _handImageView.image.size.width, _handImageView.image.size.height);
+    }
+    
 }
 
 - (void)setInnerCircleColor:(UIColor *)innerCircleColor
@@ -101,7 +114,7 @@
 {
     if (_handFillColor != handFillColor) {
         _handFillColor = handFillColor;
-        _handView.image = [self _handImage];
+        _handImageView.image = [self _handImage];
     }
 }
 
@@ -109,7 +122,7 @@
 {
     if (_handStrokeColor != handStrokeColor) {
         _handStrokeColor = handStrokeColor;
-        _handView.image = [self _handImage];
+        _handImageView.image = [self _handImage];
     }
 }
 
@@ -184,7 +197,7 @@
     CGRect inner = self.bounds;
     inner.size.width /= 2.0f;
     inner.size.height /= 2.0f;
-    CGFloat radius = floor(MIN(inner.size.width, inner.size.height)) - 14.0;
+    CGFloat radius = floor(MIN(inner.size.width, inner.size.height)) - 20.0;
     inner.size.width = 7.0;
     inner.size.height = radius;
 
@@ -207,7 +220,7 @@
     
     path = [UIBezierPath bezierPath];
     [[UIColor yellowColor] setFill];
-    [path addArcWithCenter:CGPointMake(inner.size.width/2, inner.size.height*.5) radius:2.0 startAngle:0 endAngle:M_PI * 2.0 clockwise:YES];
+    [path addArcWithCenter:CGPointMake(inner.size.width/2, inner.size.height*.9) radius:2.0 startAngle:0 endAngle:M_PI * 2.0 clockwise:YES];
     [path fill];
 
     UIImage *ret = UIGraphicsGetImageFromCurrentImageContext();
