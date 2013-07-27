@@ -22,7 +22,6 @@
 		9C66E360179C983400FD48B3 /* LaptimeDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C66E35F179C983400FD48B3 /* LaptimeDataSource.m */; };
 		9C66E363179C9AB400FD48B3 /* NSNumber+Laptime.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C66E362179C9AB400FD48B3 /* NSNumber+Laptime.m */; };
 		9CD082A3179EC7DE00987EC1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD082A2179EC7DE00987EC1 /* QuartzCore.framework */; };
-		D643F60B179CB192007ED01C /* AndroidClock_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D643F608179CB192007ED01C /* AndroidClock_Solid.ttf */; };
 		D643F60C179CB192007ED01C /* stopwatch57.png in Resources */ = {isa = PBXBuildFile; fileRef = D643F609179CB192007ED01C /* stopwatch57.png */; };
 		D643F60D179CB192007ED01C /* stopwatch114.png in Resources */ = {isa = PBXBuildFile; fileRef = D643F60A179CB192007ED01C /* stopwatch114.png */; };
 		D679DB68179D7B7F00D06EB7 /* ABWatchView.m in Sources */ = {isa = PBXBuildFile; fileRef = D679DB67179D7B7F00D06EB7 /* ABWatchView.m */; };
@@ -52,7 +51,7 @@
 		9C66E361179C9AB400FD48B3 /* NSNumber+Laptime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Laptime.h"; sourceTree = "<group>"; };
 		9C66E362179C9AB400FD48B3 /* NSNumber+Laptime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Laptime.m"; sourceTree = "<group>"; };
 		9CD082A2179EC7DE00987EC1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		D643F608179CB192007ED01C /* AndroidClock_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AndroidClock_Solid.ttf; sourceTree = "<group>"; };
+		9CFE6BF117A40DF20071AF61 /* GillSans.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = GillSans.ttc; sourceTree = "<group>"; };
 		D643F609179CB192007ED01C /* stopwatch57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stopwatch57.png; sourceTree = "<group>"; };
 		D643F60A179CB192007ED01C /* stopwatch114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stopwatch114.png; sourceTree = "<group>"; };
 		D679DB66179D7B7F00D06EB7 /* ABWatchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABWatchView.h; sourceTree = "<group>"; };
@@ -125,7 +124,7 @@
 		9C66E33D179C876400FD48B3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D643F608179CB192007ED01C /* AndroidClock_Solid.ttf */,
+				9CFE6BF117A40DF20071AF61 /* GillSans.ttc */,
 				D643F609179CB192007ED01C /* stopwatch57.png */,
 				D643F60A179CB192007ED01C /* stopwatch114.png */,
 				9C66E359179C8C1900FD48B3 /* GRAFFITI.TTF */,
@@ -197,7 +196,6 @@
 				9C66E34B179C876500FD48B3 /* Default@2x.png in Resources */,
 				9C66E34D179C876500FD48B3 /* Default-568h@2x.png in Resources */,
 				9C66E35A179C8C1D00FD48B3 /* GRAFFITI.TTF in Resources */,
-				D643F60B179CB192007ED01C /* AndroidClock_Solid.ttf in Resources */,
 				D643F60C179CB192007ED01C /* stopwatch57.png in Resources */,
 				D643F60D179CB192007ED01C /* stopwatch114.png in Resources */,
 			);

@@ -71,7 +71,7 @@
     _displayCount.backgroundColor = [UIColor blackColor];
     _displayCount.textColor = [UIColor whiteColor];
     _displayCount.text = @"You haven't pressed the button yet...";
-    _displayCount.font = [UIFont fontWithName:@"AndroidClock_Solid" size:16.0];
+    _displayCount.font = [UIFont fontWithName:@"GillSans-Light" size:16.0];
     _displayCount.textAlignment = NSTextAlignmentCenter;
     [_displayCount sizeToFit];
 
